@@ -6,6 +6,10 @@ env:
     - LUA=lua5.2 LUA_INCDIR=/usr/include/lua5.2
     - LUA=luajit-2.0.0-beta9 LUA_INCDIR=/usr/include/luajit-2.0
 
+branches:
+  only:
+    - master
+    
 install:
   - sudo apt-get install lua5.1
   - sudo apt-get install lua5.2
