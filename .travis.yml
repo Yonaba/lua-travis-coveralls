@@ -1,20 +1,18 @@
 language: erlang
 
 env:
-  global:
-    - PLATFORM=linux
-    - LUAROCKS_VER=2.2.0beta1
   matrix:
-    - LUA=lua5.1
-    - LUA=lua5.2
-    - LUA=luajit
+    - LUA=lua5.1 LUA_INCDIR=/usr/include/lua5.1
+    - LUA=lua5.2 LUA_INCDIR=/usr/include/lua5.2
+    - LUA=luajit-2.0.0-beta9 LUA_INCDIR=/usr/include/luajit-2.0
 
 branches:
   only:
     - master
 
 before_install:
-  - bash .travis_setup_lua.sh
+  - sudo apt-get install luajit
+  - sudo apt-get install luarocks
   - sudo pip install cpp-coveralls
   - sudo luarocks install luacov-coveralls --server=http://rocks.moonscript.org/dev
 
