@@ -11,6 +11,8 @@ branches:
     - master
 
 before_install:
+  - sudo apt-get install lua5.1
+  - sudo apt-get install lua5.2
   - sudo apt-get install luajit
   - sudo apt-get install luarocks
   - sudo pip install cpp-coveralls
