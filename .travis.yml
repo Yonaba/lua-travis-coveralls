@@ -5,9 +5,9 @@ env:
     - PLATFORM=linux
     - LUAROCKS_VER=2.2.0beta1
   matrix:
-    - LUA=lua5.1 LUA_SFX=
-    - LUA=lua5.2 LUA_SFX=
-    - LUA=luajit LUA_SFX=jit
+    - LUA=lua5.1
+    - LUA=lua5.2
+    - LUA=luajit
 
 branches:
   only:
@@ -19,7 +19,7 @@ before_install:
   - sudo luarocks install luacov-coveralls --server=http://rocks.moonscript.org/dev
 
 script: 
-  - $LUA_SFX dummy_test.lua
+  - $LUA dummy_test.lua
 
 after_success:
   - coveralls -b .. -r .. --dump c.report.json
