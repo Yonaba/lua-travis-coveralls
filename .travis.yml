@@ -18,9 +18,6 @@ before_install:
   - sudo pip install cpp-coveralls
   - sudo luarocks install luacov-coveralls --server=http://rocks.moonscript.org/dev
 
-install:
-  - sudo luarocks make rockspecs/foo-scm-0.rockspec CFLAGS="-O2 -fPIC -ftest-coverage -fprofile-arcs" LIBFLAG="-shared --coverage"
-
 script: 
   - $LUA_SFX dummy_test.lua
 
