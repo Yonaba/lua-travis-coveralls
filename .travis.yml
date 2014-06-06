@@ -21,7 +21,7 @@ before_install:
 script: "tsc -f spec/*"
   
 after_success:
-  - luacov-coveralls 
+  - luacov-coveralls -e telescope
 
 notifications:
   email:
